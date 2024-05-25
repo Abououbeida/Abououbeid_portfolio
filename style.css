@@ -166,14 +166,13 @@ section {
   display: flex;
   justify-content: center;
   gap: 5rem;
-  height: 80vh;
+  height: 60vh;
 }
 
 .section__pic-container {
   display: flex;
-  height: 300px;
-  width: 300px;
-  margin: auto 0;
+  gap: 5rem;
+  height: 60vh;
 }
 
 .section__text {
