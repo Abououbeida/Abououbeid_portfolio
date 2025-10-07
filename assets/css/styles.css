@@ -220,3 +220,12 @@ textarea.input{min-height:160px;resize:vertical}
 @media (prefers-reduced-motion: reduce){
   *{animation:none !important;transition:none !important;scroll-behavior:auto}
 }
+.home__img {
+  width: 180px;         /* adjust 150–220px as you prefer */
+  height: auto;         /* keeps proportions */
+  border-radius: 50%;   /* optional: makes it round */
+  object-fit: cover;    /* crops nicely inside the circle */
+  margin-inline: auto;  /* centers if needed */
+  display: block;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4); /* subtle depth */
+}
