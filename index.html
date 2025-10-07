@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!--=============== FAVICON ===============-->
   <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon" />
@@ -16,164 +16,148 @@
   <title>Abou Oubeid Dia — Data Science & Bioinformatics</title>
 </head>
 <body>
+
   <!--==================== HEADER ====================-->
   <header class="header" id="header">
-    <nav class="nav container">
+    <div class="container nav">
       <a href="#home" class="nav__logo">Abou Oubeid Dia</a>
 
-      <div class="nav__menu" id="nav-menu">
+      <button class="nav__toggle" id="nav-toggle" aria-label="Open menu">
+        <i class="ri-menu-3-line"></i>
+      </button>
+
+      <nav class="nav__menu" id="nav-menu" aria-label="Primary">
         <ul class="nav__list">
-          <li class="nav__item"><a href="#home" class="nav__link active-link">Home</a></li>
-          <li class="nav__item"><a href="#work" class="nav__link">Projects</a></li>
-          <li class="nav__item"><a href="#info" class="nav__link">About</a></li>
-          <li class="nav__item"><a href="#services" class="nav__link">Services</a></li>
-          <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+          <li><a href="#home" class="nav__link" aria-current="page">Home</a></li>
+          <li><a href="#projects" class="nav__link">Projects</a></li>
+          <li><a href="#about" class="nav__link">About</a></li>
+          <li><a href="#services" class="nav__link">Services</a></li>
+          <li><a href="#contact" class="nav__link">Contact</a></li>
         </ul>
-      </div>
+      </nav>
 
       <div class="nav__btns">
-        <!-- Theme toggle placeholder if your JS supports it -->
-        <i class="ri-moon-line change-theme" id="theme-button" title="Toggle theme"></i>
-
-        <div class="nav__toggle" id="nav-toggle">
-          <i class="ri-menu-3-line"></i>
-        </div>
+        <button class="nav__toggle" id="theme-button" title="Toggle theme" aria-label="Toggle theme">
+          <i class="ri-moon-line"></i>
+        </button>
       </div>
-    </nav>
+    </div>
   </header>
 
   <!--==================== MAIN ====================-->
   <main class="main">
+
     <!--==================== HOME ====================-->
     <section class="home section" id="home">
-      <div class="home__container container grid">
-        <div class="home__data">
+      <div class="container home__container">
+        <div>
           <h1 class="home__title">Data Science • Bioinformatics • AI for Health</h1>
           <p class="home__subtitle">
-            Final-year engineering student (INSEA, Rabat). I build reproducible data/ETL pipelines,
-            omics analytics (RNA-seq, ONT), and ML systems. I also explore quantitative methods for
-            markets (HMM regimes, ARIMA/VAR, backtesting).
+            Final-year engineering student (INSEA, Rabat). I build
+            <strong>reproducible data/ETL pipelines</strong>,
+            <strong>omics analytics (RNA-seq, ONT)</strong>, and
+            <strong>ML systems</strong> with rigorous QA/QC.
           </p>
 
-          <div class="home__buttons">
-            <a href="#work" class="button button__primary">
-              <i class="ri-rocket-2-line"></i> View Projects
-            </a>
-            <a href="#contact" class="button button__ghost">
-              <i class="ri-send-plane-line"></i> Contact
-            </a>
+          <ul class="home__bullets">
+            <li>Airflow DAGs · validation · KPI dashboards</li>
+            <li>minimap2 · samtools · methylation · Gradio demos</li>
+            <li>ARIMA/VAR · HMM regimes · backtesting</li>
+          </ul>
+
+          <div class="home__cta">
+            <a href="#projects" class="button"><i class="ri-rocket-2-line"></i> View Projects</a>
+            <a href="#contact" class="button button--ghost"><i class="ri-send-plane-line"></i> Contact</a>
           </div>
 
-          <div class="home__links">
+          <div class="home__links" style="margin-top:1rem">
             <a href="mailto:abououbeidadia@gmail.com"><i class="ri-mail-line"></i> Email</a>
             <span>•</span>
-            <a href="https://www.linkedin.com/in/abou-oubeid-dia-638100260/" target="_blank" rel="noreferrer">
+            <a href="https://www.linkedin.com/in/abou-oubeid-dia-638100260/" target="_blank" rel="noopener">
               <i class="ri-linkedin-box-line"></i> LinkedIn
             </a>
             <span>•</span>
-            <a href="https://github.com/Abououbeida" target="_blank" rel="noreferrer">
+            <a href="https://github.com/Abououbeida" target="_blank" rel="noopener">
               <i class="ri-github-line"></i> GitHub
             </a>
           </div>
         </div>
 
-        <div class="home__image">
-          <!-- Optional hero image -->
-          <img src="assets/img/hero.png" alt="Abou portfolio" class="home__img"/>
-          <div class="home__chips">
-            <span class="chip">Python</span>
-            <span class="chip">Airflow</span>
-            <span class="chip">RNA-seq</span>
-            <span class="chip">ONT</span>
-            <span class="chip">HMM</span>
-          </div>
-        </div>
+        <img class="home__img" src="assets/img/hero.png" alt="Portfolio preview" loading="lazy" />
       </div>
     </section>
 
-    <!--==================== WORKS ====================-->
-    <section class="work section" id="work">
+    <!--==================== PROJECTS ====================-->
+    <section class="section" id="projects">
       <h2 class="section__title">Featured Projects</h2>
-      <span class="section__subtitle">Built with reproducibility & clear QA/QC</span>
-
-      <div class="work__container container grid">
-        <!-- Project 1 -->
-        <article class="work__card">
-          <div class="work__img__wrap">
-            <img src="assets/img/project-edna.png" alt="Integrative eDNA Pipeline (ONT)" class="work__img"/>
-          </div>
-          <div class="work__content">
-            <h3 class="work__title">Integrative eDNA Pipeline (ONT)</h3>
-            <p class="work__description">
-              Long-read analysis (minimap2), QC, methylation profiling, exportable reports, and an
-              interactive demo for automated FASTQ analysis.
+      <div class="container works__grid">
+        <!-- Card 1 -->
+        <article class="card">
+          <img class="card__thumb" src="assets/img/project-edna.png" alt="Integrative eDNA Pipeline (ONT)" loading="lazy">
+          <div class="card__body">
+            <h3 class="card__title">Integrative eDNA Pipeline (ONT)</h3>
+            <p class="card__desc">
+              Long-read analysis (minimap2), QC, methylation profiling, automated reports, and a Gradio FASTQ demo.
             </p>
-            <div class="work__tags">
-              <span>Python</span><span>minimap2</span><span>samtools</span><span>Snakemake (concept)</span><span>Gradio</span>
+            <div class="card__tags">
+              <span class="tag">Python</span><span class="tag">minimap2</span><span class="tag">samtools</span>
+              <span class="tag">Snakemake (concept)</span><span class="tag">Gradio</span>
             </div>
-            <div class="work__links">
-              <a class="work__button" target="_blank" rel="noreferrer"
+            <div class="card__actions">
+              <a class="button button--ghost" target="_blank" rel="noopener"
                  href="https://huggingface.co/spaces/Abou4128/Dicentrarchus-labrax">
                 <i class="ri-external-link-line"></i> Live Demo
               </a>
-              <a class="work__button" target="_blank" rel="noreferrer"
-                 href="https://github.com/Abououbeida">
+              <a class="button" target="_blank" rel="noopener" href="https://github.com/Abououbeida">
                 <i class="ri-github-line"></i> Code
               </a>
             </div>
           </div>
         </article>
 
-        <!-- Project 2 -->
-        <article class="work__card">
-          <div class="work__img__wrap">
-            <img src="assets/img/project-airflow.png" alt="Airflow ETL for Analytics" class="work__img"/>
-          </div>
-          <div class="work__content">
-            <h3 class="work__title">Airflow ETL for Analytics</h3>
-            <p class="work__description">
-              Automated ingestion → normalization → validation → KPI dashboards. Reproducible DAGs,
-              schema checks, and anomaly alerts.
+        <!-- Card 2 -->
+        <article class="card">
+          <img class="card__thumb" src="assets/img/project-airflow.png" alt="Airflow ETL for Analytics" loading="lazy">
+          <div class="card__body">
+            <h3 class="card__title">Airflow ETL for Analytics</h3>
+            <p class="card__desc">
+              Automated ingestion → normalization → validation → KPI dashboards. Reproducible DAGs, schema checks, and alerts.
             </p>
-            <div class="work__tags">
-              <span>Airflow</span><span>Python</span><span>Pandas</span><span>SQL</span><span>Docker</span>
+            <div class="card__tags">
+              <span class="tag">Airflow</span><span class="tag">Python</span><span class="tag">Pandas</span>
+              <span class="tag">SQL</span><span class="tag">Docker</span>
             </div>
           </div>
         </article>
 
-        <!-- Project 3 -->
-        <article class="work__card">
-          <div class="work__img__wrap">
-            <img src="assets/img/project-hmm.png" alt="Market Forecasting with HMMs" class="work__img"/>
-          </div>
-          <div class="work__content">
-            <h3 class="work__title">Market Forecasting with HMMs</h3>
-            <p class="work__description">
-              ARIMA/VAR + Hidden Markov Models for regime detection with backtesting, metrics, and
-              uncertainty analysis.
+        <!-- Card 3 -->
+        <article class="card">
+          <img class="card__thumb" src="assets/img/project-hmm.png" alt="Market Forecasting with HMMs" loading="lazy">
+          <div class="card__body">
+            <h3 class="card__title">Market Forecasting with HMMs</h3>
+            <p class="card__desc">
+              ARIMA/VAR + Hidden Markov Models for regime detection with backtesting, metrics, and uncertainty analysis.
             </p>
-            <div class="work__tags">
-              <span>Python</span><span>statsmodels</span><span>hmmlearn</span><span>matplotlib</span>
+            <div class="card__tags">
+              <span class="tag">Python</span><span class="tag">statsmodels</span>
+              <span class="tag">hmmlearn</span><span class="tag">matplotlib</span>
             </div>
           </div>
         </article>
 
-        <!-- Project 4 -->
-        <article class="work__card">
-          <div class="work__img__wrap">
-            <img src="assets/img/project-cancer.png" alt="Cancer Detection CNN" class="work__img"/>
-          </div>
-          <div class="work__content">
-            <h3 class="work__title">Cancer Detection CNN</h3>
-            <p class="work__description">
-              Transfer learning on dermoscopic images; ROC/AUC, sensitivity, and reproducible
-              training/evaluation pipeline.
+        <!-- Card 4 -->
+        <article class="card">
+          <img class="card__thumb" src="assets/img/project-cancer.png" alt="Cancer Detection CNN" loading="lazy">
+          <div class="card__body">
+            <h3 class="card__title">Cancer Detection CNN</h3>
+            <p class="card__desc">
+              Transfer learning on dermoscopic images; ROC/AUC, sensitivity, and a reproducible training/evaluation pipeline.
             </p>
-            <div class="work__tags">
-              <span>PyTorch</span><span>TensorFlow</span><span>OpenCV</span>
+            <div class="card__tags">
+              <span class="tag">PyTorch</span><span class="tag">TensorFlow</span><span class="tag">OpenCV</span>
             </div>
-            <div class="work__links">
-              <a class="work__button" target="_blank" rel="noreferrer"
+            <div class="card__actions">
+              <a class="button" target="_blank" rel="noopener"
                  href="https://github.com/Abououbeida/skin-Cancer-detection">
                 <i class="ri-github-line"></i> Code
               </a>
@@ -183,160 +167,145 @@
       </div>
     </section>
 
-    <!--==================== INFO (ABOUT + EXPERIENCE + SKILLS) ====================-->
-    <section class="info section" id="info">
+    <!--==================== ABOUT & SKILLS ====================-->
+    <section class="section" id="about">
       <h2 class="section__title">About & Experience</h2>
-      <span class="section__subtitle">Bio, roles, and core skills</span>
-
-      <div class="info__container container grid">
-        <div class="info__data">
-          <h3>About</h3>
+      <div class="container about__grid">
+        <div class="about__text">
           <p>
-            I’m a Data Science & Bioinformatics engineering student (INSEA, Rabat) focused on
-            biomedical data, omics pipelines, and robust ETL/QA workflows. Comfortable across
-            Python/R/SQL/Linux and passionate about data quality, reproducibility, and clear
-            scientific communication.
+            I’m a Data Science & Bioinformatics engineering student (INSEA, Rabat) focused on biomedical data,
+            omics pipelines, and robust ETL/QA workflows. Comfortable across Python/R/SQL/Linux and passionate
+            about data quality, reproducibility, and clear scientific communication.
           </p>
-          <ul class="info__list">
-            <li><i class="ri-check-line"></i> ETL orchestration (Airflow) & data validation</li>
-            <li><i class="ri-check-line"></i> RNA-seq & ONT long-read analytics</li>
-            <li><i class="ri-check-line"></i> Time series / HMM regime detection</li>
-            <li><i class="ri-check-line"></i> Dashboards & reporting</li>
+          <ul class="about__list">
+            <li>ETL orchestration (Airflow) & data validation</li>
+            <li>RNA-seq & ONT long-read analytics</li>
+            <li>Time series / HMM regime detection</li>
+            <li>Dashboards & reporting</li>
           </ul>
         </div>
 
-        <div class="info__cards">
-          <article class="info__card">
-            <h3 class="info__title">Analytics Engineer Intern</h3>
-            <span class="info__subtitle">Vosyn (Remote, CA) · Jul–Sep 2025</span>
-            <p>Airflow DAGs, normalization, QA/QC dashboards, KPI tracking, reproducible workflows.</p>
-          </article>
-
-          <article class="info__card">
-            <h3 class="info__title">Freelance Data Science</h3>
-            <span class="info__subtitle">2024–Present</span>
-            <p>Bioinformatics pipelines (RNA-seq, ONT), interactive dashboards (Dash/Streamlit), ML assistants.</p>
-          </article>
-
-          <article class="info__card">
-            <h3 class="info__title">Data Science Intern</h3>
-            <span class="info__subtitle">Ministry of Digital Transition (MR) · Aug–Sep 2024</span>
-            <p>Forecasting (ARIMA/VAR, ML) & decision-support reports.</p>
-          </article>
+        <div>
+          <ul class="timeline">
+            <li class="ti">
+              <div class="ti__title">Analytics Engineer Intern</div>
+              <div class="ti__meta">Vosyn (Remote, CA) · Jul–Sep 2025</div>
+              <p>Airflow DAGs, normalization, QA/QC dashboards, KPI tracking, reproducible workflows.</p>
+            </li>
+            <li class="ti">
+              <div class="ti__title">Freelance Data Science</div>
+              <div class="ti__meta">2024–Present</div>
+              <p>Bioinformatics pipelines (RNA-seq, ONT), interactive dashboards, ML assistants.</p>
+            </li>
+            <li class="ti">
+              <div class="ti__title">Data Science Intern</div>
+              <div class="ti__meta">Ministry of Digital Transition (MR) · Aug–Sep 2024</div>
+              <p>Forecasting (ARIMA/VAR, ML) & decision-support reports.</p>
+            </li>
+          </ul>
         </div>
 
-        <div class="info__skills">
-          <h3>Skills</h3>
-          <div class="skills__chips">
-            <span class="chip">Python</span><span class="chip">R</span><span class="chip">SQL</span>
-            <span class="chip">Airflow</span><span class="chip">Pandas</span><span class="chip">Docker</span>
-            <span class="chip">RNA-seq</span><span class="chip">ONT</span><span class="chip">minimap2</span>
-            <span class="chip">samtools</span><span class="chip">scikit-learn</span><span class="chip">PyTorch</span>
-            <span class="chip">TensorFlow</span><span class="chip">Statsmodels</span><span class="chip">HMM</span>
-            <span class="chip">Git/GitHub</span><span class="chip">Linux</span>
-          </div>
+        <div class="skills__grid">
+          <div class="skill">Python <small>Pandas · FastAPI</small></div>
+          <div class="skill">Airflow <small>DAGs · CI</small></div>
+          <div class="skill">Omics <small>minimap2 · samtools</small></div>
+          <div class="skill">TS/Stats <small>ARIMA · HMM</small></div>
         </div>
       </div>
     </section>
 
     <!--==================== SERVICES ====================-->
-    <section class="services section" id="services">
+    <section class="section" id="services">
       <h2 class="section__title">What I Do</h2>
-      <span class="section__subtitle">Ways I can contribute</span>
-
-      <div class="services__container container grid">
-        <article class="services__card">
-          <i class="ri-flow-chart"></i>
-          <h3 class="services__title">ETL & Data Engineering</h3>
-          <p class="services__description">
-            Airflow DAGs, schema checks, data normalization/curation, and QA/QC dashboards.
-          </p>
+      <div class="container services__grid">
+        <article class="service">
+          <h3>Data/ETL Pipelines</h3>
+          <p>Ingestion → validation → KPI dashboards with reproducible DAGs.</p>
+          <ul><li>Airflow/DBT</li><li>Docker</li><li>Monitoring</li></ul>
         </article>
-
-        <article class="services__card">
-          <i class="ri-dna-line"></i>
-          <h3 class="services__title">Bioinformatics</h3>
-          <p class="services__description">
-            RNA-seq & ONT analysis pipelines, alignment, differential analysis, and reporting.
-          </p>
+        <article class="service">
+          <h3>Omics Analytics</h3>
+          <p>RNA-seq/ONT analyses with QC and automated reports.</p>
+          <ul><li>minimap2</li><li>samtools</li><li>Gradio demos</li></ul>
         </article>
-
-        <article class="services__card">
-          <i class="ri-brain-line"></i>
-          <h3 class="services__title">Modeling & Analytics</h3>
-          <p class="services__description">
-            Time-series forecasting, HMM regime detection, ML modeling and evaluation.
-          </p>
+        <article class="service">
+          <h3>Forecasting & HMMs</h3>
+          <p>Regime detection, backtesting and uncertainty analysis.</p>
+          <ul><li>ARIMA/VAR</li><li>HMM</li><li>Metrics</li></ul>
         </article>
       </div>
     </section>
 
     <!--==================== CONTACT ====================-->
-    <section class="contact section" id="contact">
+    <section class="section contact" id="contact">
       <h2 class="section__title">Contact</h2>
-      <span class="section__subtitle">Let’s collaborate</span>
-
-      <div class="contact__container container grid">
-        <div class="contact__content">
-          <p>
-            For collaborations, internships, or questions — email me or reach out on LinkedIn.
-          </p>
-          <ul class="contact__list">
-            <li><i class="ri-mail-line"></i> <a href="mailto:abououbeidadia@gmail.com">abououbeidadia@gmail.com</a></li>
-            <li><i class="ri-linkedin-box-line"></i> <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/abou-oubeid-dia-638100260/">LinkedIn</a></li>
-            <li><i class="ri-github-line"></i> <a target="_blank" rel="noreferrer" href="https://github.com/Abououbeida">GitHub</a></li>
-          </ul>
+      <div class="container form">
+        <div class="form__row">
+          <input class="input" type="text" placeholder="Your name">
+          <input class="input" type="email" placeholder="Email">
         </div>
-
-        <!-- (Optional) If your main.js supports EmailJS, you can add a form here -->
-        <!--
-        <form class="contact__form" id="contact-form">
-          <div class="contact__inputs">
-            <input type="text" name="user_name" placeholder="Your name" class="contact__input" required />
-            <input type="email" name="user_email" placeholder="Your email" class="contact__input" required />
-          </div>
-          <textarea name="user_message" rows="6" class="contact__input" placeholder="Your message"></textarea>
-          <button class="button button__primary" type="submit">
-            <i class="ri-send-plane-line"></i> Send
-          </button>
-          <p class="contact__alert" id="contact-alert"></p>
-        </form>
-        -->
+        <div class="form__row" style="grid-template-columns:1fr">
+          <textarea class="input" rows="6" placeholder="Message"></textarea>
+        </div>
+        <button class="button" type="button"><i class="ri-send-plane-line"></i> Send</button>
       </div>
     </section>
+
   </main>
 
   <!--==================== FOOTER ====================-->
   <footer class="footer">
-    <div class="footer__container container">
+    <div class="container footer__inner">
       <span>© <span id="year"></span> Abou Oubeid Dia</span>
-      <span>Built with ❤ — GitHub Pages</span>
+      <div class="footer__links">
+        <a href="mailto:abououbeidadia@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/abou-oubeid-dia-638100260/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/Abououbeida" target="_blank" rel="noopener">GitHub</a>
+      </div>
     </div>
   </footer>
 
-  <!--========== SCROLL UP (if your CSS/JS includes it) ==========-->
-  <!-- <a href="#" class="scrollup" id="scroll-up"><i class="ri-arrow-up-line"></i></a> -->
+  <!-- Scroll Up -->
+  <a href="#home" class="scrollup" id="scrollup" aria-label="Scroll to top">↑</a>
 
-  <!--=============== SCROLLREVEAL (optional) ===============-->
+  <!--=============== JS ===============-->
   <script src="https://unpkg.com/scrollreveal"></script>
-
-  <!--=============== EMAIL JS (optional if you enable contact form) ===============-->
-  <!-- <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script> -->
-
-  <!--=============== MAIN JS ===============-->
   <script>
-    // Minimal year + theme toggle helpers (if not already handled in assets/js/main.js)
+    // Year
     document.getElementById('year').textContent = new Date().getFullYear();
 
+    // Theme toggle
     const themeBtn = document.getElementById('theme-button');
-    if (themeBtn) {
-      themeBtn.addEventListener('click', () => {
+    if (themeBtn){
+      themeBtn.addEventListener('click', ()=>{
         document.body.classList.toggle('light-theme');
-        themeBtn.classList.toggle('ri-moon-line');
-        themeBtn.classList.toggle('ri-sun-line');
+        themeBtn.firstElementChild.classList.toggle('ri-moon-line');
+        themeBtn.firstElementChild.classList.toggle('ri-sun-line');
       });
     }
+
+    // Mobile menu
+    const navToggle = document.getElementById('nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    navToggle?.addEventListener('click', ()=> navMenu.classList.toggle('show'));
+
+    // Active link on scroll
+    const sections = [...document.querySelectorAll('section[id]')];
+    const setActive = ()=>{
+      const y = window.scrollY + 120;
+      sections.forEach(s=>{
+        const top = s.offsetTop, bottom = top + s.offsetHeight;
+        const link = document.querySelector(`.nav__link[href="#${s.id}"]`);
+        if (y >= top && y < bottom) link?.setAttribute('aria-current','page');
+        else link?.removeAttribute('aria-current');
+      });
+    };
+    document.addEventListener('scroll', setActive); setActive();
+
+    // Scroll up show/hide
+    const up = document.getElementById('scrollup');
+    const onScroll = ()=> window.scrollY > 600 ? up.classList.add('show') : up.classList.remove('show');
+    document.addEventListener('scroll', onScroll); onScroll();
   </script>
-  <script src="assets/js/main.js"></script>
 </body>
 </html>
