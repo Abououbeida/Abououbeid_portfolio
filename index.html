@@ -248,23 +248,28 @@
         </article>
       </div>
     </section>
+<section class="section contact" id="contact">
+  <h2 class="section__title">Contact</h2>
+  <div class="container form">
+    <form class="form" id="contact-form">
+      <!-- honeypot to reduce spam -->
+      <input type="text" name="company" id="company" style="display:none" tabindex="-1" autocomplete="off" />
 
-    <!--==================== CONTACT ====================-->
-    <section class="section contact" id="contact">
-      <h2 class="section__title">Contact</h2>
-      <div class="container form">
-        <div class="form__row">
-          <input class="input" type="text" placeholder="Your name">
-          <input class="input" type="email" placeholder="Email">
-        </div>
-        <div class="form__row" style="grid-template-columns:1fr">
-          <textarea class="input" rows="6" placeholder="Message"></textarea>
-        </div>
-        <button class="button" type="button"><i class="ri-send-plane-line"></i> Send</button>
+      <div class="form__row">
+        <input class="input" type="text" name="user_name" id="user_name" placeholder="Your name" required>
+        <input class="input" type="email" name="user_email" id="user_email" placeholder="Email" required>
       </div>
-    </section>
+      <div class="form__row" style="grid-template-columns:1fr">
+        <textarea class="input" name="user_message" id="user_message" rows="6" placeholder="Message" required></textarea>
+      </div>
+      <button class="button" type="submit" id="send-btn">
+        <i class="ri-send-plane-line"></i> Send
+      </button>
+      <p class="contact__alert" id="contact-alert" style="margin-top:.75rem"></p>
+    </form>
+  </div>
+</section>
 
-  </main>
 
   <!--==================== FOOTER ====================-->
   <footer class="footer">
@@ -320,5 +325,57 @@
     const onScroll = ()=> window.scrollY > 600 ? up.classList.add('show') : up.classList.remove('show');
     document.addEventListener('scroll', onScroll); onScroll();
   </script>
+  <!-- EmailJS SDK -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+  // 1) Init EmailJS
+  emailjs.init({ publicKey: "tPtyRYE0SJUWtlIrF" });
+
+  // 2) Form handler
+  const form = document.getElementById('contact-form');
+  const alertBox = document.getElementById('contact-alert');
+  const sendBtn = document.getElementById('send-btn');
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // Honeypot check
+    if (document.getElementById('company').value) return;
+
+    // Basic validation
+    const name = document.getElementById('user_name').value.trim();
+    const email = document.getElementById('user_email').value.trim();
+    const message = document.getElementById('user_message').value.trim();
+    if (!name || !email || !message) {
+      alertBox.textContent = "Please complete all fields.";
+      alertBox.style.color = "#ffb3b3";
+      return;
+    }
+
+    sendBtn.disabled = true;
+    sendBtn.innerHTML = '<i class="ri-loader-4-line ri-spin"></i> Sending...';
+    alertBox.textContent = "";
+
+    try {
+      await emailjs.send("service_cfhtoqe", "template_vo9pwnh", {
+        user_name: name,
+        user_email: email,
+        user_message: message
+      });
+
+      alertBox.textContent = "Message sent! I’ll get back to you soon.";
+      alertBox.style.color = "#8ef7c5";
+      form.reset();
+    } catch (err) {
+      alertBox.textContent = "Oops, sending failed. Please try again or email me directly.";
+      alertBox.style.color = "#ffb3b3";
+      console.error(err);
+    } finally {
+      sendBtn.disabled = false;
+      sendBtn.innerHTML = '<i class="ri-send-plane-line"></i> Send';
+    }
+  });
+</script>
+
 </body>
 </html>
